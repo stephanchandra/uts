@@ -11,7 +11,7 @@
         exit();
     }
     
-    $query = mysqli_query($conn, "SELECT * FROM users");
+    $query = mysqli_query($connect, "SELECT * FROM users");
 
     while ($row = mysqli_fetch_array($query)) {
         echo "ID: " . $row['ID'] . "<br>";
