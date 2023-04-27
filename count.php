@@ -11,7 +11,7 @@
         exit();
     }
     
-    $query = mysqli_query($conn, "SELECT * FROM users");
+    $query = mysqli_query($connect, "SELECT * FROM users");
     $count = 0;
 
     while ($row = mysqli_fetch_array($query)) {
