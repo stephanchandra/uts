@@ -1,19 +1,23 @@
 <?php
     $host = '172.19.0.2';
-    $user = 'root';
-    $pass = 'root';
+    $username = 'root';
+    $password = 'root';
     $db = 'Redlock';
 
-    $conn = mysqli_connect($host, $user, $pass, $db);
+    $connect = mysqli_connect($host, $username, $password, $db);
 
-    if (!$conn){
-        echo "Connection Failed!";
-        die();
+    if ($connect -> connect_errno){
+        echo "Connection Failed: " . $connect -> connect_error;
+        exit();
     }
     
     $query = mysqli_query($conn, "SELECT * FROM users");
 
     while ($row = mysqli_fetch_array($query)) {
-        echo "ID: " . $row['ID'] . " Nama: " . $row['Nama'] . " Alamat: " . $row['Alamat'] .  " Jabatan: " . $row['Jabatan'] . "<br>";
+        echo "ID: " . $row['ID'] . "<br>";
+        echo "Nama: " . $row['Nama'] . "<br>";
+        echo "Alamat: " . $row['Alamat'] . "<br>";
+        echo "Jabatan: " . $row['Jabatan'] . "<br>";
+        echo "<br>;
     }
 ?>
